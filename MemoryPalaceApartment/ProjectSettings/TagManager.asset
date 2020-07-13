@@ -10,6 +10,10 @@ TagManager:
   - coin
   - object
   - sun
+  - projectile
+  - FxTemporaire
+  - menuButton
+  - Teleport
   layers:
   - Default
   - TransparentFX

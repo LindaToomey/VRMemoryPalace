@@ -5,17 +5,19 @@ public class Interactable : MonoBehaviour
 {
     protected bool isAvailable = true;
 
-    public virtual void StartInteraction(Hand2 hand)
-    {
-        print("start");
-    }
+    //public virtual void StartInteraction(Hand2 hand)
+    //{
+    //    print("start");
+    //}
 
-    public virtual void Interaction(Hand2 hand)
+    //public virtual void Interaction(Hand2 hand)
+    public void OnMouseDown()
     {
         print("interaction");
     }
 
-    public virtual void EndInteraction(Hand2 hand)
+//public virtual void EndInteraction(Hand2 hand)
+    public void OnMouseUp()
     {
         print("end");
     }
