@@ -25,6 +25,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Copy Ob_zipMouth Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5131162953801618660, guid: 480a0e70935646b4fb54397448e71897,
+        type: 3}
+      propertyPath: m_TagString
+      value: special
+      objectReference: {fileID: 0}
     - target: {fileID: 6354128744737064377, guid: 480a0e70935646b4fb54397448e71897,
         type: 3}
       propertyPath: m_LocalPosition.x

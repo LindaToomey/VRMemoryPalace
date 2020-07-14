@@ -14,6 +14,7 @@ TagManager:
   - FxTemporaire
   - menuButton
   - Teleport
+  - special
   layers:
   - Default
   - TransparentFX

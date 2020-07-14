@@ -7,9 +7,11 @@ public class doubleClick : MonoBehaviour
     private float firstClickTime, timebetweenClicks;
     private bool coroutineAllowed;
     private int clickCounter;
-    RaycastHit hit;
-    Ray ray;
-    public GameObject player;
+    //RaycastHit hit;
+    //Ray ray;
+    [SerializeField]
+    private string selectableTag = "special";
+    //public GameObject player;
     //public GameObject toDelete;
 
 
@@ -37,42 +39,51 @@ public class doubleClick : MonoBehaviour
 
     private IEnumerator DoubleClickDetection()
     {
+       // ray.direction = Input.mousePosition;
+       // ray.origin = new Vector3(-11f, 1.69f, 0f);
+       // Debug.DrawRay(ray.origin, ray.direction, Color.green, 10);
         coroutineAllowed = false;
         while (Time.time < firstClickTime + timebetweenClicks)
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
             {
-                
-                    ray.direction = Input.mousePosition;
-                    ray.origin = player.transform.position;
-                    Debug.DrawRay(ray.origin, ray.direction, Color.green, 10);
-                    //Debug.Log (ray.direction);
-                
-
-                if (clickCounter == 2)
+                Debug.Log("Raycast Hit");
+                //if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+                //Debug.Log(string.Equals(this.gameObject.name, "Copy Menu_sadEmoji Variant 1(Clone)2") + this.gameObject.name+ " Copy Menu_sadEmoji Variant 1(Clone)2");
+                //if(string.Equals(this.gameObject.name, "Copy Menu_sadEmoji Variant 1(Clone)2"))
+                //{
+                var selection = hit.transform;
+                if (selection.CompareTag(selectableTag))
                 {
-
-                    Destroy(this.gameObject);
-                    Debug.Log("deleteScript called" +this.gameObject.name);
-                   
-                    //Destroy(hit.collider);
-                    //toDelete.SetActive(false);
-                    //Debug.Log("Deleting");
-                    break;
+                    Debug.Log("tag");
+                    var selectionRenderer = selection.GetComponent<Renderer>();
+                    // ray.direction = Input.mousePosition;
+                    // ray.origin = new Vector3(-11f, 1.69f, 0f);
+                    // Debug.DrawRay(ray.origin, ray.direction, Color.green, 10);
+                    //Debug.Log (ray.direction);
+                    if (selectionRenderer != null)
+                    {
+                        Debug.Log("selectionrenderer!null");
+                        if (clickCounter == 2)
+                        {
+                            Debug.Log("deleteScript called" + this.gameObject.name);
+                            Destroy(this.gameObject);
+                            //Destroy(selectionRenderer);
+                            break;
+                        }
+                    }
                 }
-                }
-                yield return new WaitForEndOfFrame();           
-        }
-        clickCounter = 0;
-        firstClickTime = 0f;
-        coroutineAllowed = true;
+            }
+        
+            
+                    yield return new WaitForEndOfFrame();           
+                }       
+            clickCounter = 0;
+            firstClickTime = 0f;
+            coroutineAllowed = true;
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        foreach (ContactPoint contact in collision.contacts)
-        {
-            Debug.DrawLine(contact.point, contact.point + contact.normal, Color.green, 2, false);
-        }
-    }
+    
 }

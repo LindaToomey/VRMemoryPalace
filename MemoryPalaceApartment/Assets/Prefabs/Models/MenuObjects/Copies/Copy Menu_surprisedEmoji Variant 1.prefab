@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640c0c7fd87a9ab4099cfb8aa5ecc5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toDelete: {fileID: 8956536376152880020}
 --- !u!114 &7657945522270483249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Copy Menu_surprisedEmoji Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549406745824355242, guid: 4712e1537ff9bf243a4e9dae92fa52b9,
+        type: 3}
+      propertyPath: m_TagString
+      value: special
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4712e1537ff9bf243a4e9dae92fa52b9, type: 3}
